@@ -1,0 +1,8 @@
+{
+  "framework": "nuxtjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".output/public",
+  "env": {
+    "NUXT_PUBLIC_API_BASE": "@lotr-api-base-url"
+  }
+}

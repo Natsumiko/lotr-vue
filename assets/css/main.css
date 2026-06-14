@@ -1,0 +1,176 @@
+/* assets/css/main.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-ancient-950 text-parchment-200 font-body;
+    background-image:
+      radial-gradient(ellipse at top, #1e3816 0%, transparent 60%),
+      radial-gradient(ellipse at bottom right, #261a0a 0%, transparent 60%);
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-parchment-300;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  /* Scrollbar stylisée */
+  ::-webkit-scrollbar        { width: 8px; }
+  ::-webkit-scrollbar-track  { @apply bg-ancient-900; }
+  ::-webkit-scrollbar-thumb  { @apply bg-ancient-600 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-parchment-600; }
+}
+
+/* ── Components ───────────────────────────────────────────────────────────── */
+@layer components {
+
+  /* Carte de ressource */
+  .lotr-card {
+    @apply
+      bg-ancient-900
+      border border-ancient-700
+      rounded-lg
+      p-5
+      transition-all duration-300
+      hover:border-parchment-600
+      hover:shadow-card-hover
+      hover:-translate-y-1;
+  }
+
+  /* Bouton principal doré */
+  .btn-gold {
+    @apply
+      bg-parchment-600
+      hover:bg-parchment-500
+      text-ancient-950
+      font-display font-semibold
+      px-6 py-2.5
+      rounded
+      transition-all duration-200
+      hover:shadow-gold;
+  }
+
+  /* Bouton outline */
+  .btn-outline {
+    @apply
+      border border-parchment-600
+      text-parchment-400
+      hover:bg-parchment-600 hover:text-ancient-950
+      font-display
+      px-5 py-2
+      rounded
+      transition-all duration-200;
+  }
+
+  /* Champ de recherche */
+  .search-input {
+    @apply
+      bg-ancient-800
+      border border-ancient-600
+      focus:border-parchment-600
+      text-parchment-200
+      placeholder-ancient-500
+      rounded
+      px-4 py-2.5
+      w-full
+      outline-none
+      transition-colors duration-200;
+  }
+
+  /* Badge de type */
+  .type-badge {
+    @apply
+      text-xs font-display
+      px-2.5 py-1
+      rounded
+      border;
+  }
+
+  .type-badge--gold {
+    @apply type-badge bg-parchment-900 border-parchment-700 text-parchment-400;
+  }
+
+  .type-badge--forest {
+    @apply type-badge bg-forest-950 border-forest-700 text-forest-400;
+  }
+
+  /* Titre de section avec ornement */
+  .section-title {
+    @apply
+      font-display text-2xl text-parchment-400
+      flex items-center gap-3
+      after:content-[''] after:flex-1 after:h-px after:bg-ancient-700;
+  }
+
+  /* Stat item */
+  .stat-row {
+    @apply flex justify-between items-baseline py-1.5 border-b border-ancient-800 last:border-0;
+  }
+
+  .stat-label {
+    @apply text-ancient-400 font-body text-sm;
+  }
+
+  .stat-value {
+    @apply text-parchment-300 font-body;
+  }
+
+  /* Skeleton loader */
+  .skeleton {
+    @apply bg-ancient-800 rounded animate-pulse;
+  }
+
+  /* Pagination */
+  .page-btn {
+    @apply
+      w-9 h-9
+      flex items-center justify-center
+      rounded
+      border border-ancient-700
+      text-parchment-400
+      hover:border-parchment-600 hover:text-parchment-300
+      transition-colors duration-200
+      font-display text-sm;
+  }
+
+  .page-btn--active {
+    @apply page-btn bg-parchment-700 border-parchment-600 text-ancient-950;
+  }
+
+  /* Quote block */
+  .lotr-quote {
+    @apply
+      border-l-4 border-parchment-700
+      pl-4 py-1
+      italic text-parchment-400 font-body;
+  }
+}
+
+/* ── Ornements ────────────────────────────────────────────────────────────── */
+@layer utilities {
+  .text-gold {
+    @apply text-parchment-500;
+    text-shadow: 0 0 20px rgba(201, 162, 39, 0.4);
+  }
+
+  .divider-ornament {
+    @apply flex items-center gap-3 text-ancient-600 text-xs;
+  }
+
+  .divider-ornament::before,
+  .divider-ornament::after {
+    content: '✦';
+  }
+}
